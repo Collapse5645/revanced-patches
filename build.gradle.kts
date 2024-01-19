@@ -5,7 +5,7 @@ plugins {
     `maven-publish`
 }
 
-group = "your.org"
+group = "com.collapse5645"
 
 repositories {
     mavenCentral()
@@ -17,8 +17,6 @@ repositories {
 dependencies {
     implementation(libs.revanced.patcher)
     implementation(libs.smali)
-    // TODO: Required because build fails without it. Find a way to remove this dependency.
-    implementation(libs.guava)
     // Used in JsonGenerator.
     implementation(libs.gson)
 
@@ -32,14 +30,14 @@ kotlin {
 
 tasks.withType(Jar::class) {
     manifest {
-        attributes["Name"] = "Your Patches"
+        attributes["Name"] = "Collapse5645 Patches"
         attributes["Description"] = "Patches for ReVanced."
         attributes["Version"] = version
         attributes["Timestamp"] = System.currentTimeMillis().toString()
-        attributes["Source"] = "git@github.com:you/revanced-patches.git"
-        attributes["Author"] = "You"
-        attributes["Contact"] = "contact@your.homepage"
-        attributes["Origin"] = "https://your.homepage"
+        attributes["Source"] = "git@github.com:Collapse5645/revanced-patches.git"
+        attributes["Author"] = "Collapse5645"
+        attributes["Contact"] = "contact@revanced.app"
+        attributes["Origin"] = "https://github.com/Collapse5645/revanced-patches"
         attributes["License"] = "GNU General Public License v3.0"
     }
 }
@@ -82,9 +80,8 @@ publishing {
             from(components["java"])
 
             pom {
-                name = "Your Patches"
+                name = "Collapse5645 Patches"
                 description = "Patches for ReVanced."
-                url = "https://your.homepage"
 
                 licenses {
                     license {
@@ -94,15 +91,15 @@ publishing {
                 }
                 developers {
                     developer {
-                        id = "Your ID"
-                        name = "Your Name"
-                        email = "contact@your.homepage"
+                        id = "Collapse5645"
+                        name = "Collapse5645"
+                        email = "collapse5645@gmail.com"
                     }
                 }
                 scm {
-                    connection = "scm:git:git://github.com/you/revanced-patches.git"
-                    developerConnection = "scm:git:git@github.com:you/revanced-patches.git"
-                    url = "https://github.com/you/revanced-patches"
+                    connection = "scm:git:git://github.com/Collapse5645/revanced-patches.git"
+                    developerConnection = "scm:git:git@github.com:Collapse5645/revanced-patches.git"
+                    url = "https://github.com/Collapse5645/revanced-patches"
                 }
             }
         }
